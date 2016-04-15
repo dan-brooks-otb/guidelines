@@ -11,7 +11,9 @@ If you don't like something here, want to add to it or want to change/rock our w
 
 ### Grid classes
 
-Where possible, divs that use grid classes (e.g. `row` or `column-(n)`) should not have any additional classes applied to them. For example,
+Where possible, divs that use grid classes (e.g. `row` or `column-(n)`) should not have any additional classes applied to them. However on occasion it is unavoidable, for example if using flexbox to overwrite grid functionality on smaller screen sizes.
+
+For example,
 
 #### Bad
 
@@ -30,8 +32,6 @@ Where possible, divs that use grid classes (e.g. `row` or `column-(n)`) should n
   </div>
 </div>
 ```
-
-However on occasion it is unavoidable, for example if using flexbox to overwrite grid functionality on smaller screen sizes.
 
 ### Text elements
 
