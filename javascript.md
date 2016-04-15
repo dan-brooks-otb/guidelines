@@ -16,7 +16,7 @@ The best way to go about writing JavaScript for our site is to make it _readable
 
 ### Browser Support
 
-We support as far back as Internet Explorer 8 so please make sure any later ECMAScript specific functions you use will work with this browser without throwing an error.
+We support as far back as Internet Explorer 9 so please make sure any later ECMAScript specific functions you use will work with this browser without throwing an error.
 
 ### Strings
 

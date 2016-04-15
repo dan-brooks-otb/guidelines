@@ -2,6 +2,7 @@
 
 * [Ruby](/ruby.rb)
 * [RSpec](/RSpec.md)
+* [HTML](/html.md)
 * [(S)CSS](/scss.md)
 * [JavaScript](/javascript.md)
 

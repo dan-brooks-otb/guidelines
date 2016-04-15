@@ -18,24 +18,24 @@ Welcome to our coding standards for writing (S)CSS.
 * Whilst not a requirement, we recommend ordering CSS properties either alphabetically or "outside-in".
 
 e.g:
+```
+// This is a good example
+.selector-1,
+.selector-2 {
+  display: block;
+  left: 0;
+  top: 0;
+  font-size: 15px;
+  color: $default-body-font; // Colour would be defined in "settings.scss"
+}
 
-    // This is a good example
-    .selector-1,
-    .selector-2 {
-      display: block;
-      left: 0;
-      top: 0;
-      font-size: 15px;
-      color: $default-body-font; // Colour would be defined in "settings.scss"
-    }
-
-    // This is a bad example
-    .selector-1, .selector-2{
-      display:block;
-      left:0; top:0;
-      font-size:1.5em; colour:RGB(255, 255, 255);
-    }
-
+// This is a bad example
+.selector-1, .selector-2{
+  display:block;
+  left:0; top:0;
+  font-size:1.5em; colour:RGB(255, 255, 255);
+}
+```
 
 ## SCSS Specifics
 
@@ -71,54 +71,54 @@ For components, we use a BEM-like (Block Element Modifier) naming convention. [C
 The `&` feature in SASS makes it easier for us to write BEM adhering CSS.
 
 e.g:
+```
+.deal-pod {
+  float: left;
+  display: block;
+  padding: 1em;
+  background: $primary-background;
 
-    .deal-pod {
-      float: left;
-      display: block;
-      padding: 1em;
-      background: $primary-background;
+  &__title {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: $primary-body-font;
+  }
 
-      &__title {
-        font-size: 1.6em;
-        font-weight: bold;
-        color: $primary-body-font;
-      }
+  &--large {
+    padding: 2em;
 
-      &--large {
-        padding: 2em;
-
-        .deal-pod__title {
-          font-size: 2.4em;
-        }
-      }
+    .deal-pod__title {
+      font-size: 2.4em;
     }
-
+  }
+}
+```
 Whilst the use of BEM promotes clean, readable and performance optimised CSS, it's still possible to fall into the same rabbit hole as old-school CSS/SMACSS, namely nested/ugly selectors. To that end, you should aim for more simplistic and granular element components, thinking of component descendents as sole entities as opposed to descendents following a hierachical structure.
 
 Instead of writing the following:
+```
+.deal-pod {
+  &__body {
+    display: block;
 
-    .deal-pod {
-      &__body {
-        display: block;
-
-        &__title {
-          display: inline-block;
-        }
-      }
+    &__title {
+      display: inline-block;
     }
-
+  }
+}
+```
 We could write:
+```
+.deal-pod {
+  &__body {
+    display: block;
+  }
 
-    .deal-pod {
-      &__body {
-        display: block;
-      }
-
-      &__title {
-        display: inline-block;
-      }
-    }
-
+  &__title {
+    display: inline-block;
+  }
+}
+```
 ## Specificity
 
 * You should avoid using element type selectors e.g. `div { ... }` and IDs, using class names where possible
@@ -131,24 +131,25 @@ When writing IE specific styles, use the `.li-ie#` classes conditionally added t
 ## Variant testing
 
 When you are testing variants, your variant should be classed as _experimental_ and the class names should reflect this. Create a copy of the original components styling, suffix `-experimental` on to the end of your component and make your changes. This allows for easier cleanup!
+```
+// Original component
+.my-component {
+  display: block;
+  background: $mainYellow;
 
-    // Original component
-    .my-component {
-      display: block;
-      background: $mainYellow;
+  a {
+    text-decoration: none;
+  }
+}
 
-      a {
-        text-decoration: none;
-      }
-    }
+// Experimental variation component
+.my-component-experimental {
+  display: block;
+  background: $royalBlue;
+  color: $white;
 
-    // Experimental variation component
-    .my-component-experimental {
-      display: block;
-      background: $royalBlue;
-      color: $white;
-
-      a {
-        text-decoration: none;
-      }
-    }
+  a {
+    text-decoration: none;
+  }
+}
+```
